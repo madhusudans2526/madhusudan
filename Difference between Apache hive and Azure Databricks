@@ -1,0 +1,63 @@
+Difference between Apache Hive and Azure Databricks?
+
+Introduction:
+Apache Hive:
+Apache Hive is a data warehouse infrastructure that facilitates querying  and managing large data sets which reside in a distributed storage  system.  Hive is built on top of Hadoop and developed by Facebook. 
+Hive manages data stored in HDFS and provides a query language based on  SQL for querying the data. Hive looks very much like a traditional  database code with SQL access. Hive provides a way to query the data  using a SQL-like query language called HQL (Hive Query Language).  Internally, a compiler translates HQL statements into MapReduce jobs,  which are then submitted to the Hadoop framework for execution. 
+
+Architecture of Apache Hive:
+https://www.javatpoint.com/hive-architecture
+
+Advantages and Disadvantages:
+
+Advantages:
+1. Higher level query language – Simplifies working with large amounts of data
+2. Lower learning curve than Pig or MapReduce – HiveQL is much closer to SQL than Pig – Less trial and error than Pig
+3. Hive is built on hadoo, so supports and handles all the capablities of hadoop provides like reliable, high avialble ,nodefailure,commodatiy hardware
+4. Database developer need not to learn the java programming for writing map reduce programs for retrieving data from hadoop system.
+5.  Fits the low level interface requirement of Hadoop perfectly.
+6. Supports external tables which make it possible to process data without actually storing in HDFS.
+7. It has a rule based optimizer for optimizing logical plans.
+8. Supports partitioning of data at the level of tables to improve performance.
+9. Metastore or Metadata store is a big plus in the architecture which makes the lookup easy.
+
+Disadvantages:
+It does not offer real-time queries.
+It does not offer row-level update
+Provides acceptable latency for interactive data browsing.
+Sub-queries are not supported in Hive
+Latency for Apache Hive queries is generally very high.
+Not designed for Online Transaction Processing
+Supports overwriting or apprehending data but not updates and deletes.
+
+
+Azure Databricks:
+Azure Databricks is an Apache Spark-based analytics platform optimized for the  Microsoft Azure cloud services platform that integrates well with Azure databases  and stores along with Active Directory and role-based access. It excels at big data  batch and stream processing and can read data from multiple data sources to provide  quick insights on big data workloads.
+Databricks is optimized for the cloud with in-memory, tightly coupled compute and data nodes, giving you near infinite scale. It’s also lightning fast since the data and computing are interconnected in the system (known as high coupling) and distributed across nodes.
+There are no predetermined structures, so it gives you flexibility as to how you ingest, shape, model and analyze the data. The types of applications that are used with Databricks. are many including: ETL, predictive analytics, machine learning, SQL queries, visualizations, text mining and text processing, real-time event processing, graph applications, pattern recognition and recommendation engines.
+
+
+
+
+Architecture of Azure Databricks:
+https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/2285c592-5687-4d5d-983b-366d20857535.png
+
+Advantages:
+It can run real-time queries.
+It supports sub-queries.
+It can Process both OLAP and OLTP.
+Supports overwriting or apprehending data, updates and deletes.
+It can perform ETL, predictive analytics, machine learning, SQL queries, visualizations, text mining and text processing, real-time event processing, graph applications, pattern recognition and recommendation engines.
+
+
+Related links
+
+https://cwiki.apache.org/confluence/display/Hive/Home
+
+https://www.quora.com/What-are-the-advantages-of-Apache-Hive
+
+https://www.quora.com/What-are-some-disadvantages-of-Apache-Hive
+
+https://www.sqlshack.com/a-beginners-guide-to-azure-databricks/
+
+https://databricks.com/blog/2017/11/15/introducing-azure-databricks.html
