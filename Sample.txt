@@ -1,0 +1,59 @@
+
+scala> val df1 = spark.sql("""select id as ID,collect_list(named_struct("NAME",trim(nvl(name,' ')),"SAL",trim(nvl(sal,' ')),"LOC",trim(nvl(loc,' ')))) as fol1 from checkar group by id""")
+df1: org.apache.spark.sql.DataFrame = [ID: int, fol1: array<struct<NAME:string,SAL:string,LOC:string>>]
+
+scala> val df2 = spark.sql("""select id as ID,collect_list(named_struct("NAME",trim(nvl(name,' ')),"SAL",trim(nvl(sal,' ')),"LOC",trim(nvl(loc,' ')),"DEPTNO",trim(nvl(deptno,' ')))) as fol1 from checkar group by id""")
+df2: org.apache.spark.sql.DataFrame = [ID: int, fol1: array<struct<NAME:string,SAL:string,LOC:string,DEPTNO:string>>]
+
+scala> df1.show()
++---+---------------+                                                           
+| ID|           fol1|
++---+---------------+
+|108|[[H,14500,PUN]]|
+|101|[[A,10000,AMT]]|
+|103|[[C,12300,GDP]]|
+|107|[[G,14300,NRT]]|
+|102|[[B,12000,BAN]]|
+|109|[[I,16000,SAP]]|
+|105|[[E,13000,HYD]]|
+|110|[[J,18900,VIZ]]|
+|106|[[F,14000,MUM]]|
+|104|[[D,12500,GNT]]|
++---+---------------+
+
+
+scala> df2.show()
++---+-------------------+                                                       
+| ID|               fol1|
++---+-------------------+
+|108| [[H,14500,PUN,80]]|
+|101| [[A,10000,AMT,10]]|
+|103| [[C,12300,GDP,30]]|
+|107| [[G,14300,NRT,70]]|
+|102| [[B,12000,BAN,20]]|
+|109| [[I,16000,SAP,90]]|
+|105| [[E,13000,HYD,50]]|
+|110|[[J,18900,VIZ,100]]|
+|106| [[F,14000,MUM,60]]|
+|104| [[D,12500,GNT,40]]|
++---+-------------------+
+
+
+scala> df1.join(df2,df1("ID") === df2("ID")).show
++---+---------------+---+-------------------+                                   
+| ID|           fol1| ID|               fol1|
++---+---------------+---+-------------------+
+|108|[[H,14500,PUN]]|108| [[H,14500,PUN,80]]|
+|101|[[A,10000,AMT]]|101| [[A,10000,AMT,10]]|
+|103|[[C,12300,GDP]]|103| [[C,12300,GDP,30]]|
+|107|[[G,14300,NRT]]|107| [[G,14300,NRT,70]]|
+|102|[[B,12000,BAN]]|102| [[B,12000,BAN,20]]|
+|109|[[I,16000,SAP]]|109| [[I,16000,SAP,90]]|
+|105|[[E,13000,HYD]]|105| [[E,13000,HYD,50]]|
+|110|[[J,18900,VIZ]]|110|[[J,18900,VIZ,100]]|
+|106|[[F,14000,MUM]]|106| [[F,14000,MUM,60]]|
+|104|[[D,12500,GNT]]|104| [[D,12500,GNT,40]]|
++---+---------------+---+-------------------+
+
+
+scala> 
