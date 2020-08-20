@@ -1,0 +1,36 @@
+STEP BY STEP JSON EXTRACTION BETWEEN ONPREM AND CLOUD:
+======================================================
+
+step 1:
+
+Getting the latest json file from the cloud
+
+Step 2:
+
+Reading the json file from the cloud
+
+Step 3:
+
+create a cloud dataframe for unparsing the json columns
+
+step 4:
+
+Getting the latest json file from the onprem
+
+Step 5:
+
+Reading the json file from step 6 path
+
+Step 6:
+
+create a onprem dataframe for unparsing the json columns
+
+
+Step 7:
+
+Compare the cloud and onprem dataframes.
+
+Step 8:
+
+Identify the missed records.
+ 
