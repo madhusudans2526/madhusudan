@@ -1,0 +1,1 @@
+val sam = udf(data: Seq[Struct],status: Seq[String] => data.zip(status))
