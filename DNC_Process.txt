@@ -1,0 +1,45 @@
+Step 1:
+
+Create Dnc_Upload table in Synapse to load the data from hql.
+
+Query:
+
+
+Step 2: 
+
+Apply the Dnc_Upload_Filter query to make proper data.
+
+Query:
+
+
+Step 3:
+
+Create a dataframe and load the Dnc_Upload table in the Notebook
+
+Step 4:
+
+Create a temp table.
+
+Step 5:
+
+Connect to the PDPC server and upload the temp table.
+
+Step 6:
+
+Get the related data which is present in PDPC server and load into a new dataframe.
+
+Step 7:
+
+Create a temp table for new data.
+
+Step 8:
+
+Create Dnc_Download table in Synapse by joining the both tables are upload_temp and download_temp.
+
+Query:
+
+
+Step 9:
+
+After creating Dnc_Download table have to follow reconsialation between on-prem and cloud.
+
