@@ -1,0 +1,11 @@
+Step 1 : Dnc_Upload hql						---->		Dnc_Upload (Synapse)
+
+Step 2 : Dnc_Upload_Filter hql				---->		Dnc_Upload_Temp (Synapse)
+
+Step 3 : Dnc_Upload_Temp_Df					---->		CSV in ADLS (/mnt/dnc/output/..)
+
+Step 4 : Parsing step  --> Create copy of dnc_download by adding remaining columns to dnc_upload (8934493937	NR	NR	NR).
+
+Step 5 : Parsed file of dnc_download will write into the notebook and load it into Dnc_Dowload_Temp (Synapse).
+
+Step 6 : Read Upload_Temp and Download_Temp into Notebook from Synapse and do the join between them and move it to Dnc_Download (Synapse).
